@@ -1,6 +1,6 @@
 // Función para simular el acceso a la primera sala
 function enterRoom() {
-   location.href="/jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc/sala1.html"
+   location.href="./jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc/sala1.html"
 }
 
 // Función para crear círculos de colores aleatorios
@@ -69,7 +69,7 @@ window.onload = createMovingCircles;
 
 // Array de códigos válidos
 const code = ['jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc', 'FNP6CZudkkx32PUGrIqSyF76ecB9dBPXcL2e7eeqk1NFlIQ7Ma', 'qEAiUKuI19LRaMkBhth5HNX9TgzPLd60mf44P7f6KUQIGAtSxL'];
-const validCodes = ['4785', '8329', '6412'];
+const validCodes = ['C4f31n4', '1nf0rm4t1c4', '0rt4lm4gr0', 'st4nc4n3ll1', 'c0mput4d0r4', 'b0lud3z', 't3l3f0n0'];
 
 // Función que se ejecuta al hacer clic en el botón
 function comprobarCodigo(num) {
@@ -93,7 +93,7 @@ function comprobarCodigo(num) {
             location.href="../victoria.html";
         }else{
         let proxSala= parseInt(num)+1;
-        location.href="/"+code[num]+"/sala"+proxSala+".html";
+        location.href="/"+code[num]+"/modelo-osi/sala"+proxSala+".html";
         }
     } else {
         // Código incorrecto
