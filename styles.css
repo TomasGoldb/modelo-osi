@@ -1,4 +1,4 @@
-/* Reset some basic styles */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -6,85 +6,81 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #2c3e50;
+    background: linear-gradient(135deg, #d0e6f7, #fce1f2);
     overflow: hidden;
-    color: white;
+    color: #333;
     position: relative;
 }
 
 /* Contenedor principal */
 .container {
     text-align: center;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    width: 70%;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 80%;
     max-width: 500px;
-    z-index: 10; /* Asegura que el contenido esté sobre los círculos */
+    z-index: 10;
 }
 
-/* Estilo del título */
+/* Título */
 .title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    animation: colorChange 3s infinite alternate;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulseTitle 3s infinite ease-in-out;
+}
+
+@keyframes pulseTitle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 /* Descripción */
 .description {
     font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #ccc;
+    margin-bottom: 25px;
+    color: #555;
 }
 
-/* Botón */
+/* Botón principal */
 .start-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    padding: 15px 35px;
+    font-size: 1.1rem;
     color: white;
-    background-color: #e74c3c;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.3);
+    transition: all 0.3s ease;
 }
 
 .start-button:hover {
-    transform: scale(1.1);
-    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.5);
 }
 
-/* Animación para los colores del título */
-@keyframes colorChange {
-    0% { color: #f39c12; }
-    50% { color: #3498db; }
-    100% { color: #e74c3c; }
-}
-
-/* Estilo para los círculos */
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none; /* Para que no interfiera con el clic */
-    transition: top 1s ease, left 1s ease, background-color 1s ease; /* Transición suave en el movimiento y el color */
-}
-
-
-/* Estilo para el input */
+/* Input */
 input[type="text"] {
-    padding: 10px;
+    padding: 12px;
     font-size: 1.1rem;
     border: 2px solid #ccc;
-    border-radius: 8px;
-    width: 80%;  /* Ocupa el 80% del ancho del contenedor */
+    border-radius: 10px;
+    width: 85%;
     max-width: 350px;
-    background-color: #34495e;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
     text-align: center;
     outline: none;
     transition: all 0.3s ease;
@@ -92,100 +88,89 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-    color: #aaa; /* Color del texto por defecto */
+    color: #aaa;
     font-style: italic;
 }
 
-/* Efectos al enfocar el input */
 input[type="text"]:focus {
-    border-color: #e74c3c;
-    background-color: #2c3e50;
-    box-shadow: 0 0 10px rgba(231, 76, 60, 0.7);
-    color: #ecf0f1;
+    border-color: #764ba2;
+    box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
 }
 
-.alert{
-    margin-top: 4%;
-}
-/* Botón Flashy para "Acceder al Nivel" */
+/* Botón flashy */
 .flashy-button {
     margin-bottom: 8%;
-    padding: 15px 50px;
-    font-size: 1.3rem;
+    padding: 15px 40px;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #fff;
-    background: linear-gradient(90deg, #e74c3c, #ff6f61, #ff3d3d, #c0392b);
-
-    background-size: 400% 400%;
+    color: white;
+    background: linear-gradient(270deg, #ff416c, #ff4b2b, #ff416c);
+    background-size: 600% 600%;
     border: none;
     border-radius: 30px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: gradientShift 5s ease infinite;
+    transition: all 0.3s ease;
+    animation: flashyShift 6s ease infinite;
 }
 
-.flashy-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-}
-
-/* Animación de cambio de color del fondo */
-@keyframes gradientShift {
+@keyframes flashyShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Contenedor de victoria */
+.flashy-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 65, 108, 0.5);
+}
+
+/* Victoria */
 .victory-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #2c3e50;
+    background: linear-gradient(135deg, #fddb92, #d1fdff);
     width: 100vw;
     height: 100vh;
-    color: white;
-    overflow: hidden;
+    color: #333;
 }
 
-/* Título de victoria */
 .victory-title {
-    font-size: 4rem;
-    font-weight: bold;
-    animation: colorChange 3s infinite alternate;
-    margin-bottom: 10px;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulseTitle 3s infinite;
 }
 
-/* Descripción de victoria */
 .victory-description {
-    font-size: 1.5rem;
-    color: #ccc;
+    font-size: 1.4rem;
     margin-bottom: 20px;
+    color: #555;
 }
 
-/* Botón de "Jugar de nuevo" */
 .play-again-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    padding: 15px 35px;
+    font-size: 1.1rem;
     color: white;
-    background-color: #48c6ef;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(24, 90, 157, 0.3);
     transition: all 0.3s ease;
 }
 
 .play-again-button:hover {
-    transform: scale(1.1);
-    background-color: #3498db;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #30e8bf, #ff8235);
 }
 
-/* Confeti animado */
+/* Confeti */
 .confetti-container {
     position: absolute;
     top: 0;
@@ -200,10 +185,9 @@ input[type="text"]:focus {
     position: absolute;
     width: 10px;
     height: 20px;
-    background-color: #e74c3c;
-    opacity: 0.8;
-    transform: rotate(15deg);
-    animation: confetti-fall 4s infinite;
+    background-color: #ff7675;
+    opacity: 0.7;
+    animation: confetti-fall 4s infinite ease-in;
 }
 
 @keyframes confetti-fall {
@@ -213,4 +197,19 @@ input[type="text"]:focus {
     100% {
         transform: translateY(110vh) rotate(360deg);
     }
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: top 1s ease, left 1s ease, background-color 1s ease;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Alerta */
+.alert {
+    margin-top: 4%;
+    font-size: 1rem;
+    color: #c0392b;
 }
