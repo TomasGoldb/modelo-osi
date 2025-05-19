@@ -97,7 +97,7 @@ function comprobarCodigo(num) {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `;
-        if(num==3){
+        if(num==7){
             location.href="../victoria.html";
         }else{
         let proxSala= parseInt(num)+1;
