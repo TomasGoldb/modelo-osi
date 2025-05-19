@@ -101,7 +101,7 @@ function comprobarCodigo(num) {
             location.href="../victoria.html";
         }else{
         let proxSala= parseInt(num)+1;
-        location.href="/modelo-osi/modelo-osi/"+code[num]+"/sala/"+proxSala+".html";
+        location.href="/modelo-osi/modelo-osi/"+code[num]+"/sala"+proxSala+".html";
         }
     } else {
         // Código incorrecto
