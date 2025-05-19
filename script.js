@@ -68,7 +68,15 @@ window.onload = createMovingCircles;
 
 
 // Array de códigos válidos
-const code = ['jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc', 'FNP6CZudkkx32PUGrIqSyF76ecB9dBPXcL2e7eeqk1NFlIQ7Ma', 'qEAiUKuI19LRaMkBhth5HNX9TgzPLd60mf44P7f6KUQIGAtSxL'];
+const code = [
+    'jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc',
+    'FNP6CZudkkx32PUGrIqSyF76ecB9dBPXcL2e7eeqk1NFlIQ7Ma',
+    'qEAiUKuI19LRaMkBhth5HNX9TgzPLd60mf44P7f6KUQIGAtSxL',
+    'bWUiJQrK95NXLmCehty0ADF8TgwPVz37ox66M3s1YKUERBlcsp',
+    'zPYtWmQe82NVrLxCkoj7ADu3BfcMZh59ty33J1s8KUWLEBdRxY',
+    'xLFiTMvE71KRqOjNgch4PUz6BydWXA35rm88J2s0VLYCBeatXp',
+    'mRAhYoKi53TXnvUpLqg6EMF1WdzJQs78cx22K4t9NVZBICwrSy'
+];
 const validCodes = ['C4f31n4', '1nf0rm4t1c4', '0rt4lm4gr0', 'st4nc4n3ll1', 'c0mput4d0r4', 'b0lud3z', 't3l3f0n0'];
 
 // Función que se ejecuta al hacer clic en el botón
