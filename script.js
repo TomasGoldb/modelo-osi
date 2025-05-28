@@ -1,6 +1,6 @@
 // Función para simular el acceso a la primera sala
 function enterRoom() {
-   location.href="./jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc/sala1.html"
+    location.href = "./jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc/sala1.html";
 }
 
 // Función para crear círculos de colores aleatorios
@@ -45,75 +45,72 @@ function getRandomColor() {
 
 // Función para mover el círculo aleatoriamente por la pantalla
 function moveCircleRandomly(circle) {
-    const moveInterval = setInterval(() => {
+    setInterval(() => {
         // Generar nuevas posiciones aleatorias
-        const newTop = Math.random() * 100; // 0 - 100vh
-        const newLeft = Math.random() * 100; // 0 - 100vw
+        const newTop = Math.random() * 100;
+        const newLeft = Math.random() * 100;
 
         // Asignar la nueva posición con transición
         circle.style.top = `${newTop}vh`;
         circle.style.left = `${newLeft}vw`;
 
-        // Cambiar el color de forma aleatoria para hacerlo más dinámico
+        // Cambiar el color aleatoriamente
         circle.style.backgroundColor = getRandomColor();
-    }, Math.random() * 2000 + 1000); // Cambia la posición cada 1-3 segundos
+    }, Math.random() * 2000 + 1000);
 }
 
 // Llamada a la función para generar los círculos al cargar la página
 window.onload = createMovingCircles;
 
+// -------------------------- Validación de código -----------------------------
 
-
-//----------------------------------------------
-
-
-// Array de códigos válidos
-const code = [
-    'jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc',
-    'FNP6CZudkkx32PUGrIqSyF76ecB9dBPXcL2e7eeqk1NFlIQ7Ma',
-    'qEAiUKuI19LRaMkBhth5HNX9TgzPLd60mf44P7f6KUQIGAtSxL',
-    'bWUiJQrK95NXLmCehty0ADF8TgwPVz37ox66M3s1YKUERBlcsp',
-    'zPYtWmQe82NVrLxCkoj7ADu3BfcMZh59ty33J1s8KUWLEBdRxY',
-    'xLFiTMvE71KRqOjNgch4PUz6BydWXA35rm88J2s0VLYCBeatXp',
-    'mRAhYoKi53TXnvUpLqg6EMF1WdzJQs78cx22K4t9NVZBICwrSy'
+// Array de salas con código visible y ruta secreta
+const salas = [
+    { code: 'C4f31n4', path: 'jiLVyLlZu41Dc7ZlMvdpkpHZzksmXXiLD8iXWpaBtDJZhRqJlc' },
+    { code: '1nf0rm4t1c4', path: 'FNP6CZudkkx32PUGrIqSyF76ecB9dBPXcL2e7eeqk1NFlIQ7Ma' },
+    { code: '0rt4lm4gr0', path: 'qEAiUKuI19LRaMkBhth5HNX9TgzPLd60mf44P7f6KUQIGAtSxL' },
+    { code: 'st4nc4n3ll1', path: 'bWUiJQrK95NXLmCehty0ADF8TgwPVz37ox66M3s1YKUERBlcsp' },
+    { code: 'c0mput4d0r4', path: 'zPYtWmQe82NVrLxCkoj7ADu3BfcMZh59ty33J1s8KUWLEBdRxY' },
+    { code: 'b0lud3z', path: 'xLFiTMvE71KRqOjNgch4PUz6BydWXA35rm88J2s0VLYCBeatXp' },
+    { code: 't3l3f0n0', path: 'mRAhYoKi53TXnvUpLqg6EMF1WdzJQs78cx22K4t9NVZBICwrSy' }
 ];
-const validCodes = ['C4f31n4', '1nf0rm4t1c4', '0rt4lm4gr0', 'st4nc4n3ll1', 'c0mput4d0r4', 'b0lud3z', 't3l3f0n0'];
 
 // Función que se ejecuta al hacer clic en el botón
-function comprobarCodigo(num) {
+function comprobarCodigo(num, event) {
     event.preventDefault();
-    // Obtener el valor del input
+
     const inputCode = document.getElementById('input-code').value.trim();
     const messageElement = document.getElementById('message');
-
-    // Limpiar cualquier mensaje anterior
     messageElement.textContent = '';
 
-    // Verificar si el código está en el array de códigos válidos
-    if (validCodes[num-1]===inputCode) {
+    if (salas[num - 1].code === inputCode) {
         messageElement.innerHTML = `
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>¡Código correcto!</strong> Acceso concedido.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `;
-        if(num==7){
-            location.href="../victoria.html";
-        }else{
-        let proxSala= parseInt(num)+1;
-        location.href="/modelo-osi/"+code[num]+"/sala"+proxSala+".html";
+
+        if (num === 7) {
+            // Redirige a victoria.html en la raíz del sitio
+            window.location.href = `${window.location.origin}/modelo-osi/victoria.html`;
+        } else {
+            const proxSala = num + 1;
+            const nextPath = salas[num].path;
+            const nextUrl = `${window.location.origin}/modelo-osi/${nextPath}/sala${proxSala}.html`;
+
+            // Redirigir a la sala correspondiente
+            window.location.href = nextUrl;
         }
     } else {
-        // Código incorrecto
         messageElement.innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Código incorrecto!</strong> Intenta de nuevo.
+                <strong>¡Código incorrecto!</strong> Intenta de nuevo.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `;
     }
 
-    // Limpiar el input después de comprobar
+    // Limpiar campo
     document.getElementById('input-code').value = '';
 }
-
